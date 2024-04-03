@@ -20,6 +20,7 @@ export default function FilterSearchBar({ filtered, setFiltered }) {
     // create new dataset
     // for each item in filtered, look at the size, 
     // to start if > 0; then add
+    // sort a to z??
   }
 
   return (
