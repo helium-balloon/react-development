@@ -1,4 +1,7 @@
-export default function FilterSearchBar(){
+export default function FilterSearchBar({data}){
+
+  // const
+
     return (
       <div className="flex-container">
         <div className="row">

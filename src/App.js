@@ -13,17 +13,17 @@ function App() {
 
   const [heartList, setHeartList] = useState([]);
 
-  const handleHeartChange = (index) => {
-    if (!heartList.includes(index)) {
-      setHeartList([...heartList,index]);
+  const handleHeartChange = (item, index) => {
+    if (!heartList.map(item => item.index).includes(index)) {
+      setHeartList([...heartList, {index, name: item.name, image: item.image, type: item.type, size: item.size} ]);
     } else {
       // remove item from list when unhearted
-      setHeartList(heartList.filter((item) => item !==index));
+      setHeartList(heartList.filter(item => item.index !== index));
     }
-  }
+  };
 
   const isHeartFilled = (index) => {
-    return heartList.includes(index);
+    return heartList.map(item => item.index).includes(index);
   };
 
   console.log(heartList);
@@ -42,6 +42,7 @@ function App() {
         {/* onHeartClick={handleHeartChange} isHeartFilled={isHeartFilled(index)} */}
         <h2>Favorites</h2>
         {/* images taken in here will be a list of the favorites (useState) */}
+        {/* right now, the favorites has the right amount of image cards but they are empty, so no information is being */}
         <ImageTable
           images={heartList}
           onHeartClick={handleHeartChange}

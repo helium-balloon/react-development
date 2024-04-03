@@ -6,7 +6,7 @@ import imageData from "../assets/image-data.json";
 export default function FilterableImagePicker( {onHeartClick, isHeartFilled}) {
     return (
       <div>
-        <FilterSearchBar></FilterSearchBar>
+        <FilterSearchBar data={imageData}></FilterSearchBar>
         <ImageTable images={imageData} onHeartClick={onHeartClick} isHeartFilled={isHeartFilled}></ImageTable>
       </div>
     );
