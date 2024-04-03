@@ -1,14 +1,39 @@
-export default function ImageCard({ name, image, type, size, index, heart }) {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "font-awesome/css/font-awesome.min.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import { useState } from "react";
+
+export default function ImageCard({ name, image, type, size, index}) {
+  library.add(faHeart);
+
+  const [heart, setHeart] = useState("unfilled");
+
+  function changeHeart() {
+      setHeart((prevState) =>
+        prevState === "unfilled" ? "filled" : "unfilled"
+      );
+  }
+
   return (
     <div className="image_card">
-      <h2 key={index}>{name}</h2>
-      <div className="image">
-        <img src={image} alt={name} style={{ width: "100%", height: "100%", objectFit: "cover"}} />
+      <div className="crop">
+        <img
+          src={image}
+          alt={name}
+          style={{ width: "100%", height: "auto", objectFit: "contain" }}
+        />
       </div>
+      <h2 key={index}>{name}</h2>
       <h3>Category: {type}</h3>
       <h3>Size: {size}</h3>
-      <button onClick={() => heart()}>Like (heart button)</button>
-      {/* the on click will be the heart and turn from not full to full or from full to empty */}
+      {heart === "unfilled" ? (
+        <FontAwesomeIcon icon={regularHeart} onClick={changeHeart} />
+      ) : (
+        <FontAwesomeIcon icon={solidHeart} onClick={changeHeart} />
+      )}
     </div>
   );
 }
