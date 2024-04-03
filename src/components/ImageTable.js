@@ -1,6 +1,6 @@
 import ImageCard from "./ImageCard";
 
-export default function ImageTable({ images}) {
+export default function ImageTable({images, onHeartClick, isHeartFilled}) {
   return (
     <div className="flex-rows">
       {images.map((item, index) => (
@@ -11,8 +11,8 @@ export default function ImageTable({ images}) {
           image={item.image}
           size={item.size}
           index={index}
-        //   onHeartClick={handleHeartChange}
-          //   add in hearting method here
+          onHeartClick={onHeartClick}
+          isHeartFilled={isHeartFilled}
         ></ImageCard>
       ))}
     </div>

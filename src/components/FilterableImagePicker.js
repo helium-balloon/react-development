@@ -7,9 +7,8 @@ export default function FilterableImagePicker( {onHeartClick, isHeartFilled}) {
     return (
       <div>
         <FilterSearchBar></FilterSearchBar>
-        <ImageTable images={imageData}></ImageTable>
+        <ImageTable images={imageData} onHeartClick={onHeartClick} isHeartFilled={isHeartFilled}></ImageTable>
       </div>
-      //   onHeartClick={handleHeartChange} isHeartFilled={isHeartFilled(index)}
     );
 
 }

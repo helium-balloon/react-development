@@ -6,16 +6,18 @@ import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 
-export default function ImageCard({ name, image, type, size, index}) {
+export default function ImageCard({ name, image, type, size, index, onHeartClick, isHeartFilled}) {
   library.add(faHeart);
 
-  const [heart, setHeart] = useState("unfilled");
+//   const [heart, setHeart] = useState("unfilled");
 
-  function changeHeart() {
-      setHeart((prevState) =>
-        prevState === "unfilled" ? "filled" : "unfilled"
-      );
-  }
+//   function changeHeart() {
+//       setHeart((prevState) =>
+//         prevState === "unfilled" ? "filled" : "unfilled"
+//       );
+//   }
+
+// console.log(isHeartFilled);
 
   return (
     <div className="image_card">
@@ -29,10 +31,10 @@ export default function ImageCard({ name, image, type, size, index}) {
       <h2 key={index}>{name}</h2>
       <h3>Category: {type}</h3>
       <h3>Size: {size}</h3>
-      {heart === "unfilled" ? (
-        <FontAwesomeIcon icon={regularHeart} onClick={changeHeart} />
+      {!isHeartFilled(index) ? (
+        <FontAwesomeIcon icon={regularHeart} onClick={() => onHeartClick(index)} />
       ) : (
-        <FontAwesomeIcon icon={solidHeart} onClick={changeHeart} />
+        <FontAwesomeIcon icon={solidHeart} onClick={() => onHeartClick(index)} />
       )}
     </div>
   );
