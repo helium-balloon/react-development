@@ -40,10 +40,11 @@ function App() {
           filtered={filtered}
           setFiltered={setFiltered}
         ></FilterableImagePicker>
-        {/* onHeartClick={handleHeartChange} isHeartFilled={isHeartFilled(index)} */}
         <h2>Favorites</h2>
-        {/* images taken in here will be a list of the favorites (useState) */}
-        {/* right now, the favorites has the right amount of image cards but they are empty, so no information is being */}
+        {heartList.length === 1 ? (
+          <h3>You have 1 favorite photo!</h3>
+        ) : (
+        <h3>You have {heartList.length} favorite photos!</h3>)}
         <ImageTable
           images={heartList}
           onHeartClick={handleHeartChange}
