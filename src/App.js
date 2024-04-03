@@ -12,6 +12,7 @@ imageData.forEach((item) => {
 function App() {
 
   const [heartList, setHeartList] = useState([]);
+  const [filtered, setFiltered] = useState(imageData);
 
   const handleHeartChange = (item, index) => {
     if (!heartList.map(item => item.index).includes(index)) {
@@ -26,8 +27,6 @@ function App() {
     return heartList.map(item => item.index).includes(index);
   };
 
-  console.log(heartList);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -38,6 +37,8 @@ function App() {
         <FilterableImagePicker
           onHeartClick={handleHeartChange}
           isHeartFilled={isHeartFilled}
+          filtered={filtered}
+          setFiltered={setFiltered}
         ></FilterableImagePicker>
         {/* onHeartClick={handleHeartChange} isHeartFilled={isHeartFilled(index)} */}
         <h2>Favorites</h2>

@@ -17,8 +17,6 @@ export default function ImageCard({ item, name, image, type, size, index, onHear
 //       );
 //   }
 
-// console.log(isHeartFilled);
-
   return (
     <div className="image_card">
       <div className="crop">
