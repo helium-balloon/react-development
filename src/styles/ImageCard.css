@@ -1,0 +1,27 @@
+.image_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  width: 20%;
+  height: 25%;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.crop {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  height: 350px;
+  @media (max-width: 800px) {
+    height: 250px;
+  }
+}
+
+.heart {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

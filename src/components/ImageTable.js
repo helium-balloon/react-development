@@ -1,4 +1,5 @@
 import ImageCard from "./ImageCard";
+import "../styles/ImageTable.css";
 
 // component for the image table which maps the images from image-data on the application by using ImageCards
 

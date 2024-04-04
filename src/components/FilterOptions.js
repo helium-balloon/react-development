@@ -1,9 +1,11 @@
+import { useState } from "react";
 import imageData from "../assets/image-data.json";
+import "../styles/FilterOptions.css";
 
 // component that creates and does the functionality for the filtering and sorting options
 
 export default function FilterOptions({ filtered, setFiltered }) {
-  // use the same filter/setFiltered state in this so that the filters 
+  // use the same filter/setFiltered state in this so that the filters
   // and sorting can work together and be done on top of each other
 
   // filter function for type
@@ -21,6 +23,8 @@ export default function FilterOptions({ filtered, setFiltered }) {
   // reset button
   const reset = () => {
     setFiltered(imageData);
+    // const switchColor = button === "clicked" ? "unclicked" : "unclicked";
+    // setButton(switchColor);
   };
 
   // sorting function for alphabetical order
@@ -45,6 +49,16 @@ export default function FilterOptions({ filtered, setFiltered }) {
     setFiltered(sort);
   };
 
+  // const [button, setButton] = useState("unclicked");
+
+  // const handleButtonClick = () => {
+  //   const switchColor = button === "unclicked" ? "clicked" : "clicked";
+  //   setButton(switchColor);
+  // };
+
+  // const unclicked = "#90BEDE";
+  // const clicked = "#bde0fe";
+
   // returns row with buttons with options for filtering and sorting and clearing
   return (
     <div className="flex-container">
@@ -52,16 +66,37 @@ export default function FilterOptions({ filtered, setFiltered }) {
         <h3 className="indent">Filter by Category:</h3>
         <button
           className="filter-buttons"
-          onClick={() => handleFilter("Nature")}
+          // style={{
+          //   backgroundColor: button === "unclicked" ? unclicked : clicked,
+          // }}
+          onClick={() => {
+            handleFilter("Nature");
+            // handleButtonClick();
+          }}
         >
           Nature
         </button>
-        <button className="filter-buttons" onClick={() => handleFilter("Food")}>
+        <button
+          className="filter-buttons"
+          // style={{
+          //   backgroundColor: button === "unclicked" ? unclicked : clicked,
+          // }}
+          onClick={() => {
+            handleFilter("Food");
+            // handleButtonClick();
+          }}
+        >
           Food
         </button>
         <button
           className="filter-buttons"
-          onClick={() => handleFilter("Animals")}
+          // style={{
+          //   backgroundColor: button === "unclicked" ? unclicked : clicked,
+          // }}
+          onClick={() => {
+            handleFilter("Animals");
+            // handleButtonClick();
+          }}
         >
           Animals
         </button>
@@ -70,26 +105,54 @@ export default function FilterOptions({ filtered, setFiltered }) {
         <h3 className="indent">Filter by Size:</h3>
         <button
           className="filter-buttons"
-          onClick={() => handleSizeFilter("Small")}
+          // style={{
+          //   backgroundColor: button === "unclicked" ? unclicked : clicked,
+          // }}
+          onClick={() => {
+            handleSizeFilter("Small");
+            // handleButtonClick();
+          }}
         >
           Small
         </button>
         <button
           className="filter-buttons"
-          onClick={() => handleSizeFilter("Medium")}
+          // style={{
+          //   backgroundColor: button === "unclicked" ? unclicked : clicked,
+          // }}
+          onClick={() => {
+            handleSizeFilter("Medium");
+            // handleButtonClick();
+          }}
         >
           Medium
         </button>
         <button
           className="filter-buttons"
-          onClick={() => handleSizeFilter("Large")}
+          // style={{
+          //   backgroundColor: button === "unclicked" ? unclicked : clicked,
+          // }}
+          onClick={() => {
+            handleSizeFilter("Large");
+            // handleButtonClick();
+          }}
         >
           Large
         </button>
       </div>
       <div className="row">
         <h3 className="indent">Sort:</h3>
-        <button className="filter-buttons" onClick={() => handleSorting()}>
+        {/* style=
+        {{
+          backgroundColor: button === "unclicked" ? unclicked : clicked,
+        }} */}
+        <button
+          className="filter-buttons"
+          onClick={() => {
+            handleSorting();
+            // handleButtonClick();
+          }}
+        >
           Alphabetize
         </button>
       </div>

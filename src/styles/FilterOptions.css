@@ -1,9 +1,27 @@
-.flex-container{
-    display: flex;
-    flex-direction: column;
+.flex-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-buttons {
+  margin: 5px;
+  background-color: #90BEDE;
+  color: black;
+  transition-duration: 0.4ms;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.filter-buttons:hover {
+  background-color: #bde0fe;
+}
+
+.indent {
+  margin-left: 30px;
 }

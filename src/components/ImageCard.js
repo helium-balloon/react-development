@@ -4,10 +4,20 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import "../styles/ImageCard.css";
 
 // component that returns an image card with an image, name, type, size, and button to like/unlike"
 
-export default function ImageCard({ item, name, image, type, size, index, onHeartClick, isHeartFilled}) {
+export default function ImageCard({
+  item,
+  name,
+  image,
+  type,
+  size,
+  index,
+  onHeartClick,
+  isHeartFilled,
+}) {
   library.add(faHeart);
 
   return (
@@ -23,9 +33,17 @@ export default function ImageCard({ item, name, image, type, size, index, onHear
       <h3>Category: {type}</h3>
       <h3>Size: {size}</h3>
       {!isHeartFilled(item.name) ? (
-        <FontAwesomeIcon icon={regularHeart} onClick={() => onHeartClick(item, item.name)} />
+        <FontAwesomeIcon
+          className="heart"
+          icon={regularHeart}
+          onClick={() => onHeartClick(item, item.name)}
+        />
       ) : (
-        <FontAwesomeIcon icon={solidHeart} onClick={() => onHeartClick(item, item.name)} />
+        <FontAwesomeIcon
+          className="heart"
+          icon={solidHeart}
+          onClick={() => onHeartClick(item, item.name)}
+        />
       )}
     </div>
   );
