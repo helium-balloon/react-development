@@ -1,20 +1,29 @@
 import imageData from "../assets/image-data.json";
 
+// component that creates and does the functionality for the filtering and sorting options
+
 export default function FilterOptions({ filtered, setFiltered }) {
+  // use the same filter/setFiltered state in this so that the filters 
+  // and sorting can work together and be done on top of each other
+
+  // filter function for type
   const handleFilter = (value) => {
     const filter = filtered.filter((photo) => photo.type.includes(value));
     setFiltered(filter);
   };
 
+  // filter function for size
   const handleSizeFilter = (value) => {
     const filter = filtered.filter((photo) => photo.size.includes(value));
     setFiltered(filter);
   };
 
+  // reset button
   const reset = () => {
     setFiltered(imageData);
   };
 
+  // sorting function for alphabetical order
   const handleSorting = () => {
     let sort = [...filtered];
     sort.sort((a, b) => {
@@ -36,6 +45,7 @@ export default function FilterOptions({ filtered, setFiltered }) {
     setFiltered(sort);
   };
 
+  // returns row with buttons with options for filtering and sorting and clearing
   return (
     <div className="flex-container">
       <div className="row">

@@ -1,5 +1,7 @@
 import ImageCard from "./ImageCard";
 
+// component for the image table which maps the images from image-data on the application by using ImageCards
+
 export default function ImageTable({images, onHeartClick, isHeartFilled}) {
   return (
     <div className="flex-rows">

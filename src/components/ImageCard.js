@@ -4,18 +4,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
-import { useState } from "react";
+
+// component that returns an image card with an image, name, type, size, and button to like/unlike"
 
 export default function ImageCard({ item, name, image, type, size, index, onHeartClick, isHeartFilled}) {
   library.add(faHeart);
-
-//   const [heart, setHeart] = useState("unfilled");
-
-//   function changeHeart() {
-//       setHeart((prevState) =>
-//         prevState === "unfilled" ? "filled" : "unfilled"
-//       );
-//   }
 
   return (
     <div className="image_card">

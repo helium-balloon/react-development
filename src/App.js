@@ -11,10 +11,16 @@ imageData.forEach((item) => {
 
 function App() {
 
+  // states used
+  //heartList which is an array of hearted image cards
   const [heartList, setHeartList] = useState([]);
+  // filtered is an array of the data to be rendered based on filters and sorting options clicked
   const [filtered, setFiltered] = useState(imageData);
 
+  // handle heart change method which adds or removes an item to the heartedList
+  // when an item is added, all its information is included so that it can be rended in the heartList
   const handleHeartChange = (item, index) => {
+    // if heartList doesn't include item, add it to list
     if (!heartList.map(item => item.index).includes(index)) {
       setHeartList([...heartList, {index, name: item.name, image: item.image, type: item.type, size: item.size} ]);
     } else {
@@ -23,6 +29,7 @@ function App() {
     }
   };
 
+  // helper method to tell if a heart is filled which helps imageCard determine to fill or unfill a heart
   const isHeartFilled = (index) => {
     return heartList.map(item => item.index).includes(index);
   };
@@ -33,14 +40,15 @@ function App() {
         <h1>Picture Picker</h1>
       </header>
       <body>
-        {/* when at base or when click clear, use full list of images */}
+        {/* returns the filterable image picker to show the filtering options and the imagecards */}
         <FilterableImagePicker
           onHeartClick={handleHeartChange}
           isHeartFilled={isHeartFilled}
           filtered={filtered}
           setFiltered={setFiltered}
         ></FilterableImagePicker>
-        <h2>Favorites</h2>
+        {/* returns the favorited photo based on the items in the heartList */}
+        <h1>Favorites</h1>
         {heartList.length === 1 ? (
           <h3>You have 1 favorite photo!</h3>
         ) : (
