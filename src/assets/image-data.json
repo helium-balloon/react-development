@@ -1,11 +1,5 @@
 [
   {
-    "name": "Arches National Park",
-    "type": "Nature",
-    "size": "Small",
-    "image": "./images/arches-national-park.jpg"
-  },
-  {
     "name": "Cat",
     "type": "Animals",
     "size": "Medium",
@@ -16,6 +10,18 @@
     "type": "Nature",
     "size": "Small",
     "image": "./images/beach.jpg"
+  },
+  {
+    "name": "Dog in a Sweatshirt",
+    "type": "Animals",
+    "size": "Large",
+    "image": "./images/dog-in-sweatshirt.jpg"
+  },
+  {
+    "name": "Arches National Park",
+    "type": "Nature",
+    "size": "Small",
+    "image": "./images/arches-national-park.jpg"
   },
   {
     "name": "Cake",
@@ -42,16 +48,16 @@
     "image": "./images/clementine.jpg"
   },
   {
-    "name": "Dog in a Sweatshirt",
-    "type": "Animals",
-    "size": "Large",
-    "image": "./images/dog-in-sweatshirt.jpg"
-  },
-  {
     "name": "Golden Retriever",
     "type": "Animals",
     "size": "Medium",
     "image": "./images/golden-retriever.jpg"
+  },
+  {
+    "name": "Winter Mountain",
+    "type": "Nature",
+    "size": "Medium",
+    "image": "./images/winter-mountain.jpg"
   },
   {
     "name": "Mountain",
@@ -64,11 +70,5 @@
     "type": "Food",
     "size": "Large",
     "image": "./images/ramen.jpg"
-  },
-  {
-    "name": "Winter Mountain",
-    "type": "Nature",
-    "size": "Medium",
-    "image": "./images/winter-mountain.jpg"
   }
 ]

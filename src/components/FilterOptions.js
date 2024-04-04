@@ -1,6 +1,6 @@
 import imageData from "../assets/image-data.json";
 
-export default function FilterSearchBar({ filtered, setFiltered }) {
+export default function FilterOptions({ filtered, setFiltered }) {
   const handleFilter = (value) => {
     const filter = filtered.filter((photo) => photo.type.includes(value));
     setFiltered(filter);
@@ -13,15 +13,28 @@ export default function FilterSearchBar({ filtered, setFiltered }) {
 
   const reset = () => {
     setFiltered(imageData);
-  }
+  };
 
   const handleSorting = () => {
-    // use filtered for the data
-    // create new dataset
-    // for each item in filtered, look at the size, 
-    // to start if > 0; then add
-    // sort a to z??
-  }
+    let sort = [...filtered];
+    sort.sort((a, b) => {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+
+      // if A before B, put A before
+      if (nameA < nameB) {
+        return -1;
+      }
+      // if A after B, put A after
+      if (nameA > nameB) {
+        return 1;
+      }
+      // same order if names equal
+      return 0;
+    });
+    // set filtered to the sorted list
+    setFiltered(sort);
+  };
 
   return (
     <div className="flex-container">
@@ -66,10 +79,14 @@ export default function FilterSearchBar({ filtered, setFiltered }) {
       </div>
       <div className="row">
         <h3 className="indent">Sort:</h3>
-        <button className="filter-buttons">Size (Big to Small)</button>
+        <button className="filter-buttons" onClick={() => handleSorting()}>
+          Alphabetize
+        </button>
       </div>
       <div className="row">
-        <button className="filter-buttons indent" onClick={() => reset()}>Clear All</button>
+        <button className="filter-buttons indent" onClick={() => reset()}>
+          Clear All
+        </button>
       </div>
     </div>
   );

@@ -29,10 +29,10 @@ export default function ImageCard({ item, name, image, type, size, index, onHear
       <h2 key={index}>{name}</h2>
       <h3>Category: {type}</h3>
       <h3>Size: {size}</h3>
-      {!isHeartFilled(index) ? (
-        <FontAwesomeIcon icon={regularHeart} onClick={() => onHeartClick(item, index)} />
+      {!isHeartFilled(item.name) ? (
+        <FontAwesomeIcon icon={regularHeart} onClick={() => onHeartClick(item, item.name)} />
       ) : (
-        <FontAwesomeIcon icon={solidHeart} onClick={() => onHeartClick(item, index)} />
+        <FontAwesomeIcon icon={solidHeart} onClick={() => onHeartClick(item, item.name)} />
       )}
     </div>
   );
